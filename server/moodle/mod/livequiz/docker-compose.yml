@@ -4,7 +4,7 @@ services:
   web:
     #For x64 architecture
     #image: kodomoheichou/moodle-web:x64
-    image: kodomoheichou/moodle-web:x64
+    image: kodomoheichou/moodle-web:arm
     container_name: moodle-web
     ports:
       - "80:80"
