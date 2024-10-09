@@ -25,7 +25,9 @@
 global $plugin;
 defined('MOODLE_INTERNAL') || die();
 
-$plugin = new stdClass(); // Initialize $plugin as an object
+$plugin = new stdClass();
 $plugin->version = 2024072500;
 $plugin->requires = 2024041600;
+$plugin->maturity = MATURITY_STABLE;
 $plugin->component = 'mod_livequiz';
+$plugin->release = '1.0.0';
