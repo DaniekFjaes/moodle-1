@@ -3,8 +3,6 @@ version: '3.8'
 services:
   web:
     #For x64 architecture
-    #image: kodomoheichou/moodle-web:x64
-    #image: kodomoheichou/moodle-web:arm
     build: .
     container_name: moodle-web
     ports:
