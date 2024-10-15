@@ -13,18 +13,33 @@
 //
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+/**
+ * Activity creation/editing form for the mod_livequiz plugin.
+ *
+ * @package
+ * @copyright
+ * @license
+ */
 
-global $OUTPUT, $PAGE, $DB;
-require_once('../../config.php');
+require_once($CFG->dirroot.'/course/moodleform_mod.php');
 
-$id = required_param('id', PARAM_INT); // Course module ID
-[$course, $cm] = get_course_and_cm_from_cmid($id, 'livequiz');
-$instance = $DB->get_record('livequiz', ['id'=> $cm->instance], '*', MUST_EXIST);
+class mod_livequiz_mod_form extends moodleform_mod {
+    /**
+     * @return void
+     */
+    function definition() {
+        global $CFG, $DB, $OUTPUT;
+        // Used to add fields to form.
+        $mform =& $this->_form;
+        $this->standard_coursemodule_elements();
+        // Standard Moodle form buttons.
+        $this->add_action_buttons();
+    }
+    function validation($data, $files) {
 
-$PAGE->set_url('/mod/livequiz/view.php', array('id' => $id));
-$PAGE->set_title(get_string('modulename', 'mod_livequiz'));
-$PAGE->set_heading(get_string('modulename', 'mod_livequiz'));
+    }
+    function data_preprocessing(&$default_values) {
 
-echo $OUTPUT->header();
-echo $OUTPUT->heading('this is the livequiz view page');
-echo $OUTPUT->footer();
+    }
+
+}
